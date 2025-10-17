@@ -59,8 +59,10 @@
     .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--border)}
     .btn:hover{transform:translateY(-1px)}
     .hero{padding:56px 0}
-    .hero h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:6px 0 14px}
+    .hero h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:6px 0 10px}
     .hero p{color:var(--muted);max-width:720px;margin:0 0 18px}
+    .hero-logo{margin:12px 0 8px}
+    .hero-logo img{height:72px;width:auto;display:block;filter: drop-shadow(0 2px 6px rgba(0,0,0,.35))}
     .grid{display:grid;gap:18px}
     @media(min-width:900px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
     .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}
@@ -70,6 +72,8 @@
     .kpis{display:flex;gap:18px;flex-wrap:wrap;margin:8px 0}
     .kpi{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:10px 14px}
     .footer{border-top:1px solid var(--border);color:var(--muted);margin-top:36px}
+    .footer-inner{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .footer-logo{height:28px;width:auto;opacity:.9}
     .small{font-size:13px;color:var(--muted)}
     .accent{color:var(--accent)}
     form{display:grid;gap:10px}
@@ -99,6 +103,12 @@
     <div class="wrap">
       <span class="pill">Veteran-Owned • ACFN Franchisee</span>
       <h1>Reliable, local <span class="accent">ATM placements</span> for the CSRA.</h1>
+
+      <!-- Hero logo -->
+      <div class="hero-logo">
+        <img src="J3LATM.png" alt="J3L Family, LLC — ATM Services" />
+      </div>
+
       <p>We install, cash-load, and maintain ATMs for laundromats, convenience stores, bars, motels, truck stops, and more across Harlem, Grovetown, Appling, Thomson, and Augusta. Free installs. Fast service. 24-hour support.</p>
       <div class="kpis">
         <div class="kpi">🚀 Free install & LTE connection</div>
@@ -185,7 +195,10 @@
   </section>
 
   <footer class="wrap footer">
-    <p>© <span id="y"></span> J3L Family, LLC — ATM Services • Veteran-Owned • ACFN Franchisee • Grovetown, GA</p>
+    <div class="footer-inner">
+      <img src="J3LATM.png" alt="J3L Family ATM" class="footer-logo">
+      <p>© <span id="y"></span> J3L Family, LLC — ATM Services • Veteran-Owned • ACFN Franchisee • Grovetown, GA</p>
+    </div>
   </footer>
 
   <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
