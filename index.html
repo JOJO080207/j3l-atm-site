@@ -4,13 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>J3L Family, LLC — ATM Services (CSRA)</title>
-  <meta name="description" content="Veteran-owned, franchised ATM services for the CSRA. Free installs, fast cash loads, 24-hour support. Laundromats, C-stores, bars, motels & more." />
-  <link rel="canonical" href="https://atm.j3lfamily.com/" />
+  <meta name="description" content="Veteran-owned, franchised ATM services for the CSRA. Free installs, reliable cash loading, and 24-hour support for laundromats, C-stores, bars, motels, and more." />
+  <link rel="canonical" href="https://jojoo80207.github.io/j3l-atm-site/" />
 
-  <!-- Open Graph -->
+  <!-- Social -->
   <meta property="og:title" content="J3L Family, LLC — ATM Services" />
-  <meta property="og:description" content="Veteran-owned, franchised ATM services for the CSRA. Free installs, fast cash loads, 24-hour support." />
+  <meta property="og:description" content="Veteran-owned, franchised ATM services for the CSRA. Free installs, fast service, 24-hour support." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://jojoo80207.github.io/j3l-atm-site/J3LATM.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="J3LATM.png" />
 
   <!-- JSON-LD: Local Business -->
   <script type="application/ld+json">
@@ -18,8 +23,8 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "J3L Family, LLC — ATM Services",
-    "url": "https://atm.j3lfamily.com/",
-    "image": "https://atm.j3lfamily.com/assets/og-logo.png",
+    "url": "https://jojoo80207.github.io/j3l-atm-site/",
+    "image": "https://jojoo80207.github.io/j3l-atm-site/J3LATM.png",
     "email": "info@j3lfamily.com",
     "telephone": "+1-813-686-4167",
     "address": {
@@ -37,7 +42,7 @@
 
   <style>
     :root{
-      --bg:#0e0e0f; --ink:#ffffff; --muted:#cfcfcf; --accent:#f2c979; /* switch to #fff for pure BW */
+      --bg:#0e0e0f; --ink:#ffffff; --muted:#cfcfcf; --accent:#f2c979; /* set to #ffffff for pure B/W */
       --card:#151517; --border:#2a2a2d;
     }
     *{box-sizing:border-box}
@@ -48,7 +53,7 @@
     .nav{position:sticky;top:0;background:rgba(14,14,15,.85);backdrop-filter:saturate(180%) blur(6px);border-bottom:1px solid var(--border);z-index:10}
     .nav-inner{display:flex;align-items:center;gap:18px;justify-content:space-between}
     .brand{display:flex;align-items:center;gap:14px;font-weight:800;letter-spacing:.4px}
-    .brand svg{width:38px;height:38px}
+    .brand img{height:42px;width:auto;display:block}
     .cta-row{display:flex;gap:12px;flex-wrap:wrap}
     .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;background:var(--ink);color:#111;font-weight:700;border:1px solid #000}
     .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--border)}
@@ -79,13 +84,7 @@
   <header class="nav">
     <div class="wrap nav-inner">
       <div class="brand">
-        <!-- Inline SVG logo so you don't need an image file yet -->
-        <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <rect x="6" y="6" width="52" height="52" rx="8" stroke="white" stroke-width="3"/>
-          <rect x="18" y="16" width="28" height="20" rx="2" stroke="white" stroke-width="2"/>
-          <rect x="18" y="40" width="28" height="8" rx="2" fill="white"/>
-          <path d="M30 28h4v-6h4v6h4v4h-4v6h-4v-6h-4v-4z" fill="white"/>
-        </svg>
+        <img src="J3LATM.png" alt="J3L Family, LLC — ATM Services logo"/>
         <div>J3L Family, LLC <span class="small">— ATM Services</span></div>
       </div>
       <div class="cta-row">
@@ -145,7 +144,7 @@
     <div class="card">
       <h2>Service Area</h2>
       <p>Harlem • Grovetown • Appling • Thomson • Augusta</p>
-      <p class="small">Looking at Amazon/White Oak corridors and I-20 exits 172/183/190. Tight routes mean faster service and lower downtime.</p>
+      <p class="small">Focusing on Amazon/White Oak corridors and I-20 exits 172/183/190. Tight routes mean faster service and lower downtime.</p>
     </div>
     <div class="card">
       <h2>Compliance & Support</h2>
@@ -163,7 +162,8 @@
     <div class="card">
       <h2>Get an ATM for Your Business</h2>
       <p class="small">2-minute form — goes straight to <strong>info@j3lfamily.com</strong>.</p>
-      <!-- Mailto fallback: opens the user's email client with prefilled content -->
+
+      <!-- Mailto fallback form -->
       <form onsubmit="location.href=`mailto:info@j3lfamily.com?subject=ATM%20Placement%20Request&body=Business%20Name:%20${encodeURIComponent(this.bname.value)}%0D%0ALocation:%20${encodeURIComponent(this.addr.value)}%0D%0AHours:%20${encodeURIComponent(this.hours.value)}%0D%0AContact:%20${encodeURIComponent(this.name.value)}%20(${encodeURIComponent(this.phone.value)})%0D%0ADetails:%20${encodeURIComponent(this.msg.value)}`; return false;">
         <input name="bname" required placeholder="Business name" />
         <input name="addr" required placeholder="Street address, city" />
@@ -175,11 +175,12 @@
         <p class="note">Prefer direct email? Write us at <a href="mailto:info@j3lfamily.com">info@j3lfamily.com</a> or text <a href="tel:+18136864167">(813) 686-4167</a>.</p>
       </form>
     </div>
+
     <div class="card">
       <h2>Current Partners</h2>
       <p class="small">Now signing laundromats (Peanut’s Laundry and others), I-20 corridor C-stores, bars, and motels. Ask about employee fee discounts for large staff sites.</p>
       <h3>On-Screen Advertising</h3>
-      <p class="small">We can display promos on the ATM screen (e.g., your <em>Dual Military</em> book ad, local specials). Great for upsell and community branding.</p>
+      <p class="small">We can display promos on the ATM screen (e.g., your <em>Dual Military</em> book ad or local specials). Great for upsell and community branding.</p>
     </div>
   </section>
 
