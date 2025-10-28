@@ -65,8 +65,15 @@
         linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.62)),
         url('https://images.unsplash.com/photo-1603988363607-e1e4a66962c5?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
       padding:80px 0;
+      overflow:hidden;
     }
-    .hero .wrap{position:relative;z-index:2;}
+    .hero .wrap{position:relative;z-index:2;opacity:0;transform:translateY(8px);animation:fadeInUp .6s ease-out .1s forwards}
+    @media (prefers-reduced-motion: reduce){
+      .hero .wrap{opacity:1;transform:none;animation:none}
+    }
+    @keyframes fadeInUp {
+      to {opacity:1;transform:translateY(0)}
+    }
     .hero h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:6px 0 10px}
     .hero p{color:var(--muted);max-width:720px;margin:0 0 18px}
     .hero-logo{margin:12px 0 8px}
@@ -76,7 +83,7 @@
     .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}
     h2{font-size:clamp(22px,3vw,30px);margin:6px 0 6px}
     h3{margin:8px 0}
-    .pill{display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:999px;font-size:12px;color:var(--muted)}
+    .pill{display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:999px;font-size:12px;color:#e7e7e7;background:rgba(0,0,0,.25)}
     .kpis{display:flex;gap:18px;flex-wrap:wrap;margin:8px 0}
     .kpi{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:10px 14px}
     .footer{border-top:1px solid var(--border);color:var(--muted);margin-top:36px}
@@ -93,7 +100,7 @@
 <body>
 
   <!-- NAV -->
-  <header class="nav">
+  <header class="nav" aria-label="Primary">
     <div class="wrap nav-inner">
       <div class="brand">
         <img src="J3LATM.png" alt="J3L Family, LLC — ATM Services logo"/>
@@ -107,7 +114,7 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" aria-label="Hero">
     <div class="wrap">
       <span class="pill">Veteran-Owned • Independently Owned & Operated ACFN Franchisee</span>
       <h1>Local, reliable <span class="accent">ATM placements</span> for the CSRA.</h1>
@@ -117,17 +124,17 @@
       </div>
 
       <p>We place, cash-load, and service ATMs for laundromats, convenience stores, bars, motels, and more across Harlem, Grovetown, Appling, Thomson, and Augusta.</p>
-      <div class="kpis">
-        <div class="kpi">🚀 Professional install & LTE connectivity</div>
-        <div class="kpi">🧾 Clear monthly statements & ACH payments</div>
-        <div class="kpi">🛠 Rapid service response during business hours</div>
+      <div class="kpis" role="list" aria-label="Key benefits">
+        <div class="kpi" role="listitem">🚀 Professional install & LTE connectivity</div>
+        <div class="kpi" role="listitem">🧾 Clear monthly statements & ACH payments</div>
+        <div class="kpi" role="listitem">🛠 Rapid service response during business hours</div>
       </div>
       <p class="small">Note: Compensation to host locations is set by individual placement agreement and may be a flat stipend or a share of surcharge. No earnings or profit claims are being made.</p>
     </div>
   </section>
 
   <!-- VALUE / WHO WE SERVE -->
-  <section class="wrap grid cols-3">
+  <section class="wrap grid cols-3" aria-label="Services and audience">
     <div class="card">
       <h3>What We Do</h3>
       <ul class="list">
@@ -158,7 +165,7 @@
   </section>
 
   <!-- COVERAGE / PROOF -->
-  <section class="wrap grid cols-2" id="coverage">
+  <section class="wrap grid cols-2" id="coverage" aria-label="Coverage and support">
     <div class="card">
       <h2>Service Area</h2>
       <p>Harlem • Grovetown • Appling • Thomson • Augusta</p>
@@ -176,11 +183,12 @@
   </section>
 
   <!-- CONTACT -->
-  <section class="wrap grid cols-2" id="contact">
+  <section class="wrap grid cols-2" id="contact" aria-label="Contact">
     <div class="card">
       <h2>Request an ATM for Your Business</h2>
       <p class="small">2-minute form — goes straight to <strong>info@j3lfamily.com</strong>.</p>
 
+      <!-- Mailto fallback form -->
       <form onsubmit="location.href=`mailto:info@j3lfamily.com?subject=ATM%20Placement%20Request&body=Business%20Name:%20${encodeURIComponent(this.bname.value)}%0D%0ALocation:%20${encodeURIComponent(this.addr.value)}%0D%0AHours:%20${encodeURIComponent(this.hours.value)}%0D%0AContact:%20${encodeURIComponent(this.name.value)}%20(${encodeURIComponent(this.phone.value)})%0D%0ADetails:%20${encodeURIComponent(this.msg.value)}`; return false;">
         <input name="bname" required placeholder="Business name" />
         <input name="addr" required placeholder="Street address, city" />
@@ -211,6 +219,8 @@
     </p>
   </footer>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
