@@ -58,11 +58,22 @@
     .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;background:var(--ink);color:#111;font-weight:700;border:1px solid #000}
     .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--border)}
     .btn:hover{transform:translateY(-1px)}
-    .hero{padding:56px 0}
+    .hero{
+      position:relative;
+      background:url('ATM-machine.jpg') center/cover no-repeat;
+      padding:80px 0;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.6);
+    }
+    .hero .wrap{position:relative;z-index:2;}
     .hero h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:6px 0 10px}
     .hero p{color:var(--muted);max-width:720px;margin:0 0 18px}
     .hero-logo{margin:12px 0 8px}
-    .hero-logo img{height:72px;width:auto;display:block;filter: drop-shadow(0 2px 6px rgba(0,0,0,.35))}
+    .hero-logo img{height:72px;width:auto;display:block;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35))}
     .grid{display:grid;gap:18px}
     @media(min-width:900px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
     .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}
