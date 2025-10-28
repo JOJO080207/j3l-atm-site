@@ -60,14 +60,11 @@
     .btn:hover{transform:translateY(-1px)}
     .hero{
       position:relative;
-      background:url('ATM-machine.jpg') center/cover no-repeat;
+      /* Dark modern ATM background (royalty-free Unsplash CDN) */
+      background:
+        linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.62)),
+        url('https://images.unsplash.com/photo-1603988363607-e1e4a66962c5?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
       padding:80px 0;
-    }
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:rgba(0,0,0,0.6);
     }
     .hero .wrap{position:relative;z-index:2;}
     .hero h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:6px 0 10px}
@@ -115,7 +112,6 @@
       <span class="pill">Veteran-Owned • Independently Owned & Operated ACFN Franchisee</span>
       <h1>Local, reliable <span class="accent">ATM placements</span> for the CSRA.</h1>
 
-      <!-- Hero logo -->
       <div class="hero-logo">
         <img src="J3LATM.png" alt="J3L Family, LLC — ATM Services" />
       </div>
@@ -185,7 +181,6 @@
       <h2>Request an ATM for Your Business</h2>
       <p class="small">2-minute form — goes straight to <strong>info@j3lfamily.com</strong>.</p>
 
-      <!-- Mailto fallback form -->
       <form onsubmit="location.href=`mailto:info@j3lfamily.com?subject=ATM%20Placement%20Request&body=Business%20Name:%20${encodeURIComponent(this.bname.value)}%0D%0ALocation:%20${encodeURIComponent(this.addr.value)}%0D%0AHours:%20${encodeURIComponent(this.hours.value)}%0D%0AContact:%20${encodeURIComponent(this.name.value)}%20(${encodeURIComponent(this.phone.value)})%0D%0ADetails:%20${encodeURIComponent(this.msg.value)}`; return false;">
         <input name="bname" required placeholder="Business name" />
         <input name="addr" required placeholder="Street address, city" />
