@@ -17,7 +17,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="J3LATM.png" />
 
-  <!-- JSON-LD -->
+  <!-- JSON-LD: Local visibility + contact -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -26,8 +26,8 @@
     "url": "https://jojo080207.github.io/j3l-atm-site/",
     "image": "https://jojo080207.github.io/j3l-atm-site/J3LATM.png",
     "email": "info@j3lfamily.com",
-    "telephone": "+1-813-686-4167",
-    "areaServed": ["Harlem","Grovetown","Appling","Thomson","Augusta"],
+    "telephone": "+1-762-242-5030",
+    "areaServed": ["Harlem GA","Grovetown GA","Appling GA","Thomson GA","Augusta GA"],
     "description": "Veteran-owned ATM operator; independently owned and operated franchisee of ACFN. We provide placement, cash loading, and service for local businesses."
   }
   </script>
@@ -50,41 +50,38 @@
     .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:12px;background:var(--ink);color:#111;font-weight:700;border:1px solid #000}
     .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--border)}
     .btn:hover{transform:translateY(-1px)}
-
-    /* HERO SECTION */
     .hero{
       position:relative;
       background:
-        linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+        linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.62)),
         url('ATM-MALL.jpeg') center/cover no-repeat;
       padding:80px 0;
       overflow:hidden;
-      display:flex;
-      align-items:center;
-      min-height:60vh;
     }
-    .hero .wrap{position:relative;z-index:2;}
+    .hero .wrap{position:relative;z-index:2;opacity:0;transform:translateY(8px);animation:fadeInUp .6s ease-out .1s forwards}
+    @media (prefers-reduced-motion: reduce){
+      .hero .wrap{opacity:1;transform:none;animation:none}
+    }
+    @keyframes fadeInUp { to {opacity:1;transform:translateY(0)} }
     .hero h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:6px 0 10px}
     .hero p{color:var(--muted);max-width:720px;margin:0 0 18px}
     .hero-logo{margin:12px 0 8px}
     .hero-logo img{height:72px;width:auto;display:block;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35))}
-    .pill{display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:999px;font-size:12px;color:#e7e7e7;background:rgba(0,0,0,.25)}
-    .kpis{display:flex;gap:18px;flex-wrap:wrap;margin:8px 0}
-    .kpi{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:10px 14px}
-
-    /* GRID + CARDS */
     .grid{display:grid;gap:18px}
     @media(min-width:900px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
     .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px}
     h2{font-size:clamp(22px,3vw,30px);margin:6px 0 6px}
     h3{margin:8px 0}
+    .pill{display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:999px;font-size:12px;color:#e7e7e7;background:rgba(0,0,0,.25)}
+    .kpis{display:flex;gap:18px;flex-wrap:wrap;margin:8px 0}
+    .kpi{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:10px 14px}
     .footer{border-top:1px solid var(--border);color:var(--muted);margin-top:36px}
     .footer-inner{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
     .footer-logo{height:28px;width:auto;opacity:.9}
     .small{font-size:13px;color:var(--muted)}
     .accent{color:var(--accent)}
-    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:#0b0b0c;color:var(--ink)}
     form{display:grid;gap:10px}
+    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:#0b0b0c;color:var(--ink)}
     .note{font-size:12px;color:var(--muted)}
     .list{margin:0;padding-left:18px}
   </style>
@@ -92,39 +89,41 @@
 <body>
 
   <!-- NAV -->
-  <header class="nav">
+  <header class="nav" aria-label="Primary">
     <div class="wrap nav-inner">
       <div class="brand">
         <img src="J3LATM.png" alt="J3L Family, LLC — ATM Services logo"/>
         <div>J3L Family, LLC <span class="small">— ATM Services</span></div>
       </div>
       <div class="cta-row">
-        <a class="btn" href="tel:+18136864167">📞 Call (762) 242-5030</a>
+        <a class="btn" href="tel:+17622425030">📞 Call (762) 242-5030</a>
         <a class="btn ghost" href="mailto:info@j3lfamily.com">✉️ info@j3lfamily.com</a>
       </div>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" aria-label="Hero">
     <div class="wrap">
       <span class="pill">Veteran-Owned • Independently Owned & Operated ACFN Franchisee</span>
       <h1>Local, reliable <span class="accent">ATM placements</span> for the CSRA.</h1>
-      <div class="hero-logo">
-        <img src="J3LATM.png" alt="J3L Family, LLC — ATM Services" />
+
+      <div class="hero-logo" aria-hidden="true">
+        <img src="J3LATM.png" alt="J3L Family — ATM badge" />
       </div>
+
       <p>We place, cash-load, and service ATMs for laundromats, convenience stores, bars, motels, and more across Harlem, Grovetown, Appling, Thomson, and Augusta.</p>
-      <div class="kpis">
-        <div class="kpi">🚀 Professional install & LTE connectivity</div>
-        <div class="kpi">🧾 Clear monthly statements & ACH payments</div>
-        <div class="kpi">🛠 Rapid service response during business hours</div>
+      <div class="kpis" role="list" aria-label="Key benefits">
+        <div class="kpi" role="listitem">🚀 Professional install & LTE connectivity</div>
+        <div class="kpi" role="listitem">🧾 Clear monthly statements & ACH payments</div>
+        <div class="kpi" role="listitem">🛠 Rapid service response during business hours</div>
       </div>
       <p class="small">Note: Compensation to host locations is set by individual placement agreement and may be a flat stipend or a share of surcharge. No earnings or profit claims are being made.</p>
     </div>
   </section>
 
   <!-- VALUE / WHO WE SERVE -->
-  <section class="wrap grid cols-3">
+  <section class="wrap grid cols-3" aria-label="Services and audience">
     <div class="card">
       <h3>What We Do</h3>
       <ul class="list">
@@ -154,8 +153,8 @@
     </div>
   </section>
 
-  <!-- COVERAGE / SUPPORT -->
-  <section class="wrap grid cols-2" id="coverage">
+  <!-- COVERAGE / PROOF -->
+  <section class="wrap grid cols-2" id="coverage" aria-label="Coverage and support">
     <div class="card">
       <h2>Service Area</h2>
       <p>Harlem • Grovetown • Appling • Thomson • Augusta</p>
@@ -173,10 +172,12 @@
   </section>
 
   <!-- CONTACT -->
-  <section class="wrap grid cols-2" id="contact">
+  <section class="wrap grid cols-2" id="contact" aria-label="Contact">
     <div class="card">
       <h2>Request an ATM for Your Business</h2>
       <p class="small">2-minute form — goes straight to <strong>info@j3lfamily.com</strong>.</p>
+
+      <!-- Mailto fallback form -->
       <form onsubmit="location.href=`mailto:info@j3lfamily.com?subject=ATM%20Placement%20Request&body=Business%20Name:%20${encodeURIComponent(this.bname.value)}%0D%0ALocation:%20${encodeURIComponent(this.addr.value)}%0D%0AHours:%20${encodeURIComponent(this.hours.value)}%0D%0AContact:%20${encodeURIComponent(this.name.value)}%20(${encodeURIComponent(this.phone.value)})%0D%0ADetails:%20${encodeURIComponent(this.msg.value)}`; return false;">
         <input name="bname" required placeholder="Business name" />
         <input name="addr" required placeholder="Street address, city" />
@@ -185,7 +186,10 @@
         <input name="phone" required placeholder="Phone" />
         <textarea name="msg" rows="4" placeholder="Anything else we should know?"></textarea>
         <button class="btn" type="submit">Send Request</button>
-        <p class="note">Prefer direct email? Write us at <a href="mailto:info@j3lfamily.com">info@j3lfamily.com</a> or text <a href="tel:+18136864167">(813) 686-4167</a>.</p>
+        <p class="note">
+          Prefer direct contact? Call or text <a href="tel:+17622425030">(762) 242-5030</a> or email
+          <a href="mailto:info@j3lfamily.com">info@j3lfamily.com</a>.
+        </p>
       </form>
     </div>
 
@@ -195,14 +199,15 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="wrap footer">
     <div class="footer-inner">
       <img src="J3LATM.png" alt="J3L Family ATM" class="footer-logo">
-      <p>© <span id="y"></span> J3L Family, LLC — ATM Services • Independently owned and operated franchisee of ACFN • Grovetown, GA</p>
+      <p>© <span id="y"></span> J3L Family, LLC — ATM Services • Independently owned and operated franchisee of ACFN • CSRA</p>
     </div>
     <p class="wrap small" style="margin-top:8px">
-      <strong>Required franchise disclosure:</strong> J3L Family, LLC is independently owned and operated under a franchise license from ACFN. Nothing on this website is an offer of a franchise or a guarantee of revenue, profit, or performance.
+      <strong>Required franchise disclosure:</strong> J3L Family, LLC is independently owned and operated under a franchise license from ACFN.
+      Nothing on this website is an offer of a franchise or a guarantee of revenue, profit, or performance. Any examples or descriptions are for informational purposes only; actual results vary by location and agreement.
+      “ACFN” and related marks are the property of their respective owners and used here to describe the franchise relationship.
     </p>
   </footer>
 
